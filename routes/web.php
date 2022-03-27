@@ -20,3 +20,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::resources
+// GET 	     | /photos	             | index   | photos.index
+// GET	     | /photos/create	     | create  | photos.create
+// POST	     | /photos	             | store   | photos.store
+// GET	     | /photos/{photo}	     | show	   | photos.show
+// GET	     | /photos/{photo}/edit	 | edit	   | photos.edit
+// PUT/PATCH | /photos/{photo}	     | update  | photos.update
+// DELETE	 | /photos/{photo}   	 | destroy | photos.destroy
+
+Route::group([ 'middleware' => 'auth' ], function () {
+    Route::resources([
+        'teachers' => App\Http\Controllers\TeacherController::class,
+        'students' => App\Http\Controllers\StudentController::class,
+        'schedules' => App\Http\Controllers\ScheduleController::class,
+    ]);
+});

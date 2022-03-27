@@ -44,21 +44,21 @@
                       <div class="ms-2 me-auto">
                         <div class="fw-bold">Professores cadastrados</div>
                       </div>
-                      <span class="badge bg-primary rounded-pill">14</span>
+                      <span class="badge bg-primary rounded-pill">{{ $teachers }}</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                           <div class="fw-bold">Alunos cadastrados</div>
                         </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
+                        <span class="badge bg-primary rounded-pill">{{ $students }}</span>
                     </li>
 
                     <li class="list-group-item d-flex justify-content-between align-items-start">
                         <div class="ms-2 me-auto">
                           <div class="fw-bold">Agendamentos cadastrados</div>
                         </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
+                        <span class="badge bg-primary rounded-pill">{{ $schedules }}</span>
                     </li>
                 </ol>
 

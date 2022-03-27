@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\teacher;
+use App\Models\Teachers;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -14,7 +14,10 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teachers::all();
+        return view('teachers.index', [
+            'teachers' => $teachers
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teachers.form');
     }
 
     /**
