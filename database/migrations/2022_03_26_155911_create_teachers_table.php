@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('cpf', 11)->unique();
             $table->string('password');
-            $table->enum('discipline', [1,2,3]);
+            $table->enum('discipline', ['Inglês','Matemática','Lógica']);
             $table->timestamps();
         });
     }

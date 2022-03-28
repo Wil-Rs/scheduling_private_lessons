@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\student;
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,7 +14,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Students::all();
+
+        return view('students.index', [
+            'students' => $students
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.form');
     }
 
     /**
@@ -35,7 +39,17 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'birth_date' => 'required'
+        ]);
+
+        Students::create([
+            'name' => $request->name,
+            'birth_date' => $request->birth_date
+        ]);
+
+        return redirect('/students');
     }
 
     /**
@@ -44,9 +58,12 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show(student $student)
+    public function show(int $id)
     {
-        //
+        $student = Students::find($id);
+        return view('students.form', [
+            'student' => $student
+        ]);
     }
 
     /**
@@ -55,9 +72,12 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(student $student)
+    public function edit(int $id)
     {
-        //
+        $student = Students::find($id);
+        return view('students.form', [
+            'student' => $student
+        ]);
     }
 
     /**
@@ -67,9 +87,14 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, student $student)
+    public function update(Request $request, int $id)
     {
-        //
+        $student = Students::find($id);
+        $student->name = $request->name;
+        $student->birth_date = $request->birth_date;
+        $student->save();
+
+        return redirect('/students');
     }
 
     /**
@@ -78,8 +103,18 @@ class StudentController extends Controller
      * @param  \App\Models\student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(student $student)
+    public function destroy(int $id)
     {
-        //
+        $student = Students::find($id);
+        $student->delete();
+        return redirect('/students');
+    }
+
+    public function search(Request $request)
+    {
+        $students = Students::where('name', 'LIKE', "%".$request->search."%")->orWhere('id', '=', $request->search)->get();
+        return view('students.index', [
+            'students' => $students
+        ]);
     }
 }
