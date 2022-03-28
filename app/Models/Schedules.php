@@ -14,4 +14,14 @@ class Schedules extends Model
         'teacher_id',
         'student_id'
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Students::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teachers::class);
+    }
 }

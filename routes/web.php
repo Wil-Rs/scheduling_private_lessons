@@ -36,4 +36,9 @@ Route::group([ 'middleware' => 'auth' ], function () {
         'students' => App\Http\Controllers\StudentController::class,
         'schedules' => App\Http\Controllers\ScheduleController::class,
     ]);
+
+    Route::post('/teachers/search', [App\Http\Controllers\TeacherController::class, 'search']);
+    Route::post('/students/search', [App\Http\Controllers\StudentController::class, 'search']);
+    Route::post('/schedules/search', [App\Http\Controllers\ScheduleController::class, 'search']);
+
 });

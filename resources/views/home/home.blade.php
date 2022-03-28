@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Cadastro Professor</h5>
                             {{-- <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> --}}
-                            <a href="#" class="btn btn-primary w-100">Acessar</a>
+                            <a href="{{url('teachers')}}" class="btn btn-primary w-100">Acessar</a>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Cadastro Aluno</h5>
                             {{-- <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> --}}
-                            <a href="#" class="btn btn-primary w-100">Acessar</a>
+                            <a href="{{url('students')}}" class="btn btn-primary w-100">Acessar</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Agendamentos</h5>
                             {{-- <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p> --}}
-                            <a href="#" class="btn btn-primary w-100">Acessar</a>
+                            <a href="{{url('schedules')}}" class="btn btn-primary w-100">Acessar</a>
                         </div>
                     </div>
                 </div>
