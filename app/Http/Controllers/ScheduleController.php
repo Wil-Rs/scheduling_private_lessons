@@ -136,7 +136,7 @@ class ScheduleController extends Controller
     }
 
     public function search(Request $request){
-        $schedules = Schedules::where('teacher_id', '=', "%{$request->search}%")->orWhere('id', '=', $request->search)->get();
+        $schedules = Schedules::where('teacher_id', '=', $request->search)->orWhere('id', '=', $request->search)->get();
         return view('schedules.index', [
             'schedules' => $schedules
         ]);
