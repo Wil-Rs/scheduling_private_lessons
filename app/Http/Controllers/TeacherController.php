@@ -43,7 +43,7 @@ class TeacherController extends Controller
         $request->validate([
             'name' => 'required|min:3|max:255',
             'email' => 'required|email|unique:teachers',
-            'cpf' => 'required|max:11|unique:teachers',
+            'cpf' => 'required|max:11|unique:teachers|cpf',
             'password' => 'required|confirmed|min:8',
             'discipline' => ['required', Rule::in(['Inglês', 'Matemática', 'Lógica']),]
         ]);
